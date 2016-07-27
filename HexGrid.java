@@ -126,18 +126,20 @@ public class HexGrid <T>{
     		{
     			for(int j=cy+k;j<col+(int) Math.floor(i/2.0);j++)
     			{
-    				if(i==cx && j ==cy)
-    					continue;
     				list.add(grid[i][j]);
     			}
     		}
     		if(slice!=-1)
     			break;
     		
-    		if(slice!=-1)
-    			break;
     	case 5:
-    		
+    		for(int i=cx+1, k =1;i<row;i++,k++) // same as slice #4 
+    		{
+    			for(int j = cy ; j<cy+k;j++)
+    			{
+    				list.add(grid[i][j]);
+    			}
+    		}
     		if(slice!=-1)
     			break;
     	case 6:
