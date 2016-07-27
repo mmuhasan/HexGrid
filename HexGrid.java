@@ -225,12 +225,12 @@ public class HexGrid <T>{
     	{
 	    	for(int i=0; i <radius;i++)
 	    	{
-	    		list.add(safeItem(cx-i		 ,cy-radius		));
-	    		list.add(safeItem(cx-radius	 ,cy-radius+i	));
-	    		list.add(safeItem(cx-radius+i,cy+i			));
-	    		list.add(safeItem(cx+i		 ,cy+radius		));
-	    		list.add(safeItem(cx+radius	 ,cy+radius-i	));
-	    		list.add(safeItem(cx+radius-i,cy-i			));
+	    		list.add(safeItem(x-i		 ,y-radius		));
+	    		list.add(safeItem(x-radius	 ,y-radius+i	));
+	    		list.add(safeItem(x-radius+i ,y+i			));
+	    		list.add(safeItem(x+i		 ,y+radius		));
+	    		list.add(safeItem(x+radius	 ,y+radius-i	));
+	    		list.add(safeItem(x+radius-i ,y-i			));
 	    	}
     	}
     	else

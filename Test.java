@@ -13,7 +13,7 @@ public class Test {
 			data[i] = new myClass(i);
 
 		HexGrid<myClass> objHexGrid = new HexGrid<myClass>(9,11,data);
-		int radius = 0;
+		int radius = 1;
 		ArrayList<myClass> list = objHexGrid.ring(2,3,radius);
 		Collections.sort(list);
 		for(int i=0;i<list.size();i++)
