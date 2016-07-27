@@ -143,7 +143,13 @@ public class HexGrid <T>{
     		if(slice!=-1)
     			break;
     	case 6:
-    		
+    		for(int i=cx+1, k =1;i<row;i++,k++) // same as slice #4 and slie #5 
+    		{
+    			for(int j = (int)Math.ceil(i/2.0) ; j<cy;j++) // col start same as slice #1
+    			{
+    				list.add(grid[i][j]);
+    			}
+    		}
     		if(slice!=-1)
     			break;
     	}
