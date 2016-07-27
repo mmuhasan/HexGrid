@@ -221,21 +221,21 @@ public class HexGrid <T>{
     {
     	ArrayList<T> list = new ArrayList<T>();
     	
-    	if(radius == 0)
+    	if(radius != 0)
     	{
-    		list.add(grid[cx][cy]);
-    		return list;
+	    	for(int i=0; i <radius;i++)
+	    	{
+	    		list.add(safeItem(cx-i		 ,cy-radius		));
+	    		list.add(safeItem(cx-radius	 ,cy-radius+i	));
+	    		list.add(safeItem(cx-radius+i,cy+i			));
+	    		list.add(safeItem(cx+i		 ,cy+radius		));
+	    		list.add(safeItem(cx+radius	 ,cy+radius-i	));
+	    		list.add(safeItem(cx+radius-i,cy-i			));
+	    	}
     	}
-	
-    	for(int i=0; i <radius;i++)
-    	{
-    		list.add(safeItem(cx-i		 ,cy-radius		));
-    		list.add(safeItem(cx-radius	 ,cy-radius+i	));
-    		list.add(safeItem(cx-radius+i,cy+i			));
-    		list.add(safeItem(cx+i		 ,cy+radius		));
-    		list.add(safeItem(cx+radius	 ,cy+radius-i	));
-    		list.add(safeItem(cx+radius-i,cy-i			));
-    	}
+    	else
+    		list.add(safeItem(x,y));
+
     	list.removeAll(Collections.singleton(null));  
     	return list;
     }
