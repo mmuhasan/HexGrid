@@ -87,7 +87,7 @@ public class HexGrid <T>{
     	switch(slice){
 
     	case -1:
-    	case 1:	
+    	case 1:
     		list.add(grid[cx][cy]);
     		for(int i=cx, k =0;i>=0;i--,k++)
     		{
@@ -100,11 +100,18 @@ public class HexGrid <T>{
     		if(slice!=-1)
     			break;
     	case 2:
-
+    		
+    		for(int i=cx, k =0;i>=0;i--,k++) // will be same as slice #1
+    		{
+    			for(int j=cy-k;j<cy;j++) // starts from where slice #1 finish and continue till the center
+    			{
+    				list.add(grid[i][j]);
+    			}
+    		}
     		if(slice!=-1)
     			break;
     	case 3:
-    		
+    		//col+(int) Math.floor(i/2.0)
     		if(slice!=-1)
     			break;
     	case 4:
