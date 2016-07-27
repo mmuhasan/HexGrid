@@ -12,13 +12,13 @@ public class Test {
 			data[i] = new myClass(i);
 
 		HexGrid<myClass> objHexGrid = new HexGrid<myClass>(9,11,data);
-		int slice = 3;
+		int slice = 4;
 		ArrayList<myClass> list = objHexGrid.slice(slice);
 		for(int i=0;i<list.size();i++)
 			list.get(i).print();
 		System.out.println("finish");
 	
-		HexGrid<myClass> objHexGrid2 = new HexGrid<myClass>(8,6,data);
+		HexGrid<myClass> objHexGrid2 = new HexGrid<myClass>(9,6,data);
 		
 		ArrayList<myClass> list2 = objHexGrid2.slice(slice);
 		for(int i=0;i<list2.size();i++)
