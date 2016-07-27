@@ -176,19 +176,40 @@ public class HexGrid <T>{
     	
     }
         
-    public ArrayList<T> ring(int diameter)
+    public ArrayList<T> ring(int radius) // center of the grid is the center of the ring
     {
-    	ArrayList<T> list = new ArrayList<T>();
+    	return ring(cx,cy,radius);
+    }
+
+    public ArrayList<T> ring(T obj) // min(cx,cy) will be the radius 
+    {
+    	int[] res = new int[2];    	
+    	int r = (cx<cy?cx:cy);
     	
+    	search(obj, res);
     	
-    	
-    	return list;
+    	return ring(res[0],res[1],r);
     }
     
-    public ArrayList<T> ring(int x, int y,int diameter)
+    public ArrayList<T> ring(int x, int y) // min(cx,cy) will be the radius 
+    {
+    	int r = (cx<cy?cx:cy);
+    	return ring(x,y,r);
+    }
+    
+    
+    public ArrayList<T> ring(T obj,int radius)
+    {
+    	int[] res = new int[2];    	
+    	search(obj, res);
+    	
+    	return ring(res[0],res[1],radius);
+    }
+
+    public ArrayList<T> ring(int x, int y,int diameter) // x,y is the center
     {
     	ArrayList<T> list = new ArrayList<T>();
-    	
+
     	
     	
     	return list;
