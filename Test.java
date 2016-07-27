@@ -12,7 +12,7 @@ public class Test {
 			data[i] = new myClass(i);
 
 		HexGrid<myClass> objHexGrid = new HexGrid<myClass>(9,11,data);
-		int slice = 2;
+		int slice = 3;
 		ArrayList<myClass> list = objHexGrid.slice(slice);
 		for(int i=0;i<list.size();i++)
 			list.get(i).print();
