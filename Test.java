@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class Test {
 
 	public static void main(String[] args) {
-
+		
 		myClass[] data= new myClass[96];
 		
 		for(int i=0;i<96;i++)
 			data[i] = new myClass(i);
 
 		HexGrid<myClass> objHexGrid = new HexGrid<myClass>(9,11,data);
-		int slice = 6;
+		int slice = -1;
 		ArrayList<myClass> list = objHexGrid.slice(slice);
 		for(int i=0;i<list.size();i++)
 			list.get(i).print();

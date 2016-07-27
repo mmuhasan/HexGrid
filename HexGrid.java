@@ -37,6 +37,24 @@ public class HexGrid <T>{
         if(data!=null)
             AssignValues(data);
     }
+    
+    public void search(T obj, int []res)
+    {
+    	boolean found = false;
+    	for(int i = 0;i<row && !found;i++)
+    	{
+    		for(int j=(int)Math.ceil(i/2.0);j<col+(int) Math.floor(i/2.0);j++)
+    		{
+    			if(grid[i][j]==obj)
+    			{
+    				res[0] = i;
+    				res[1] = j;
+    				found = true;
+    				break;
+    			}
+    		}
+    	}
+    }
 
     private void AssignValues(T[] data) {
         int dbug=0;
@@ -157,7 +175,7 @@ public class HexGrid <T>{
     	return list;
     	
     }
-    
+        
     public ArrayList<T> ring(int diameter)
     {
     	ArrayList<T> list = new ArrayList<T>();
@@ -166,6 +184,16 @@ public class HexGrid <T>{
     	
     	return list;
     }
+    
+    public ArrayList<T> ring(int x, int y,int diameter)
+    {
+    	ArrayList<T> list = new ArrayList<T>();
+    	
+    	
+    	
+    	return list;
+    }
+    
     public Object testMore(int i, int j)
 	{
 		return grid[i][j];
