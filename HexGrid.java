@@ -206,13 +206,26 @@ public class HexGrid <T>{
     	return ring(res[0],res[1],radius);
     }
 
-    public ArrayList<T> ring(int x, int y,int diameter) // x,y is the center
+    public ArrayList<T> ring(int x, int y,int radius) // x,y is the center
     {
     	ArrayList<T> list = new ArrayList<T>();
-
     	
-    	
-    	return list;
+    	if(radius == 0)
+    	{
+    		list.add(grid[cx][cy]);
+    		return list;
+    	}
+	
+    	for(int i=0; i <radius;i++)
+    	{
+    		list.add(grid[cx-i]		  [cy-radius]	);
+    		list.add(grid[cx-radius]  [cy-radius+i]	);
+    		list.add(grid[cx-radius+i][cy+i]	);
+    		list.add(grid[cx+i]		  [cy+radius]	);
+    		list.add(grid[cx+radius]  [cy+radius-i]	);
+    		list.add(grid[cx+radius-i][cy-i]		);
+    	}
+    	    	return list;
     }
     
     public Object testMore(int i, int j)
