@@ -2,6 +2,7 @@ package hexGrid2;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class HexGrid <T>{
     int row,col;
@@ -37,6 +38,16 @@ public class HexGrid <T>{
         if(data!=null)
             AssignValues(data);
     }
+    
+    public T safeItem(int x, int y)
+    {
+    	T obj = null;
+    	//r, c+(int) Math.floor(r/2.0)
+    	if(x>=0 && x < row && y >=(int)Math.ceil(x/2.0) && y < col+(int) Math.floor(x/2.0) )
+    		obj = grid[x][y];
+    	return obj;
+    }
+
     
     public void search(T obj, int []res)
     {
@@ -205,7 +216,7 @@ public class HexGrid <T>{
     	
     	return ring(res[0],res[1],radius);
     }
-
+    
     public ArrayList<T> ring(int x, int y,int radius) // x,y is the center
     {
     	ArrayList<T> list = new ArrayList<T>();
@@ -218,14 +229,15 @@ public class HexGrid <T>{
 	
     	for(int i=0; i <radius;i++)
     	{
-    		list.add(grid[cx-i]		  [cy-radius]	);
-    		list.add(grid[cx-radius]  [cy-radius+i]	);
-    		list.add(grid[cx-radius+i][cy+i]	);
-    		list.add(grid[cx+i]		  [cy+radius]	);
-    		list.add(grid[cx+radius]  [cy+radius-i]	);
-    		list.add(grid[cx+radius-i][cy-i]		);
+    		list.add(safeItem(cx-i		 ,cy-radius		));
+    		list.add(safeItem(cx-radius	 ,cy-radius+i	));
+    		list.add(safeItem(cx-radius+i,cy+i			));
+    		list.add(safeItem(cx+i		 ,cy+radius		));
+    		list.add(safeItem(cx+radius	 ,cy+radius-i	));
+    		list.add(safeItem(cx+radius-i,cy-i			));
     	}
-    	    	return list;
+    	list.removeAll(Collections.singleton(null));  
+    	return list;
     }
     
     public Object testMore(int i, int j)
